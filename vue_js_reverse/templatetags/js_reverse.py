@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import template
 from django.utils.safestring import mark_safe
-from django_js_reverse.core import generate_js
+from vue_js_reverse.core import generate_js
 
 try:
     from django.urls import get_resolver

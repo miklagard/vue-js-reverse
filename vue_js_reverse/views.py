@@ -2,7 +2,7 @@
 import json
 
 from django import http
-from django_js_reverse import core
+from vue_js_reverse import core
 
 try:
     from django.urls import get_resolver

@@ -2,22 +2,6 @@
 VUE JS Reverse
 =================
 
-.. image:: https://img.shields.io/pypi/v/vue-js-reverse.svg
-   :target: https://pypi.python.org/pypi/vue-js-reverse/
-
-.. image:: https://img.shields.io/travis/ierror/django-js-reverse/master.svg
-   :target: https://travis-ci.org/ierror/vue-js-reverse
-
-.. image:: https://img.shields.io/coveralls/ierror/django-js-reverse/master.svg
-   :alt: Coverage Status
-   :target: https://coveralls.io/r/ierror/django-js-reverse?branch=master
-
-.. image:: https://img.shields.io/github/license/ierror/django-js-reverse.svg
-    :target: https://raw.githubusercontent.com/ierror/django-js-reverse/master/LICENSE
-
-.. image:: https://img.shields.io/pypi/wheel/django-js-reverse.svg
-
-
 **Vue url handling for Django that doesn’t hurt.**
 
 
@@ -51,19 +35,7 @@ Result:
 Requirements
 ------------
 
-+----------------+------------------------------------------+
-| Python version | Django versions                          |
-+================+==========================================+
-| 3.7            | 2.2, 2.1, 2.0, 1.11, 1.10, 1.9, 1.8      |
-+----------------+------------------------------------------+
-| 3.6            | 2.2, 2.1, 2.0, 1.11, 1.10, 1.9, 1.8      |
-+----------------+------------------------------------------+
-| 3.5            | 2.2, 2.1, 2.0, 1.11, 1.10, 1.9, 1.8      |
-+----------------+------------------------------------------+
-| 3.4            | 2.0, 1.11, 1.10, 1.9, 1.8, 1.7, 1.6, 1.5 |
-+----------------+------------------------------------------+
-| 2.7            | 1.11, 1.10, 1.9, 1.8, 1.7, 1.6, 1.5      |
-+----------------+------------------------------------------+
+python 3.6+
 
 
 Installation

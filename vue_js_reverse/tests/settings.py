@@ -14,7 +14,7 @@ ROOT_URLCONF = None
 USE_TZ = True
 
 INSTALLED_APPS = (
-    'django_js_reverse',
+    'vue_js_reverse',
 )
 
 ALLOWED_HOSTS = ['testserver']

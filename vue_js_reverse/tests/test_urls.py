@@ -4,8 +4,8 @@ from copy import copy
 from django.conf.urls import include as django_include
 from django.conf.urls import url
 from django.views.generic import View
-from django_js_reverse.tests.helper import is_django_ver_gte_2
-from django_js_reverse.views import urls_js
+from vue_js_reverse.tests.helper import is_django_ver_gte_2
+from vue_js_reverse.views import urls_js
 
 try:
     from django.urls import path
@@ -51,7 +51,7 @@ def include(v, **kwargs):
     if not is_django_ver_gte_2():
         return django_include(v, **kwargs)
 
-    return django_include((v, 'django_js_reverse'), **kwargs)
+    return django_include((v, 'vue_js_reverse'), **kwargs)
 
 
 # test namespace

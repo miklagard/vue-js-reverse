@@ -13,7 +13,7 @@
 0.10.0 (2019-08-01)
 -------------------
 
-- deprecate django_js_reverse.VERSION. It will now always be ``(0, 9, 2)``
+- deprecate vue_js_reverse.VERSION. It will now always be ``(0, 9, 2)``
 - deprecate js_reverse_inline
 - use setuptools.setup
 
@@ -52,7 +52,7 @@
 
 - New: Support for Django 2.0: `#58 <https://github.com/ierror/django-js-reverse/issues/58>`_
   Thank you `wlonk <https://github.com/wlonk>`_
-- Fix: `#53 <https://github.com/ierror/django-js-reverse/issues/53>`__ - Don't install the tests folder as a separate folder.  Moved inside the django_js_reverse namespace.
+- Fix: `#53 <https://github.com/ierror/django-js-reverse/issues/53>`__ - Don't install the tests folder as a separate folder.  Moved inside the vue_js_reverse namespace.
 
 0.7.3
 -----
@@ -164,7 +164,7 @@
 
 - Add ability to save in file::
 
-      <script src="{% static 'django_js_reverse/js/reverse.js' %}"></script>``
+      <script src="{% static 'vue_js_reverse/js/reverse.js' %}"></script>``
 
   to do this run ./manage.py collectstatic
 

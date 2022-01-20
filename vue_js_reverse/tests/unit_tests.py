@@ -82,7 +82,7 @@ class AbstractJSReverseTestCase(object):
         self.assertEqualJSEval(js, *args, **kwargs)
 
 
-@override_settings(ROOT_URLCONF='django_js_reverse.tests.test_urls')
+@override_settings(ROOT_URLCONF='vue_js_reverse.tests.test_urls')
 class JSReverseViewTestCaseMinified(AbstractJSReverseTestCase, TestCase):
     def test_view_no_url_args(self):
         self.assertEqualJSUrlEval('Urls.test_no_url_args()', '/test_no_url_args/')
@@ -229,7 +229,7 @@ class JSReverseViewTestCaseMinified(AbstractJSReverseTestCase, TestCase):
 
 
 @override_settings(JS_REVERSE_JS_MINIFY=False)
-@override_settings(ROOT_URLCONF='django_js_reverse.tests.test_urls')
+@override_settings(ROOT_URLCONF='vue_js_reverse.tests.test_urls')
 class JSReverseViewTestCaseNotMinified(JSReverseViewTestCaseMinified):
     def test_minification(self):
         js_not_minified = smart_str(self.client.post('/jsreverse/').content)
@@ -238,7 +238,7 @@ class JSReverseViewTestCaseNotMinified(JSReverseViewTestCaseMinified):
             self.assertTrue(len(js_minified) < len(js_not_minified))
 
 
-@override_settings(ROOT_URLCONF='django_js_reverse.tests.test_urls')
+@override_settings(ROOT_URLCONF='vue_js_reverse.tests.test_urls')
 class JSReverseViewTestCaseGlobalObjectName(JSReverseViewTestCaseMinified):
     def test_global_object_name_default(self):
         js_content = smart_str(self.client.post('/jsreverse/').content)
@@ -255,12 +255,12 @@ class JSReverseViewTestCaseGlobalObjectName(JSReverseViewTestCaseMinified):
             self.client.post('/jsreverse/')
 
 
-@override_settings(ROOT_URLCONF='django_js_reverse.tests.test_urls')
+@override_settings(ROOT_URLCONF='vue_js_reverse.tests.test_urls')
 class JSReverseStaticFileSaveTest(AbstractJSReverseTestCase, TestCase):
     def test_reverse_js_file_save(self):
         call_command('collectstatic_js_reverse')
 
-        path = os.path.join(settings.STATIC_ROOT, 'django_js_reverse', 'js', 'reverse.js')
+        path = os.path.join(settings.STATIC_ROOT, 'vue_js_reverse', 'js', 'reverse.js')
         f = io.open(path)
         content1 = f.read()
 
@@ -304,20 +304,20 @@ class JSReverseStaticFileSaveTest(AbstractJSReverseTestCase, TestCase):
 
 
 @override_settings(
-    ROOT_URLCONF='django_js_reverse.tests.test_urls',
+    ROOT_URLCONF='vue_js_reverse.tests.test_urls',
 
     TEMPLATE_CONTEXT_PROCESSORS=['django.core.context_processors.request'],
 )
 class JSReverseTemplateTagTest(AbstractJSReverseTestCase, TestCase):
     def test_tpl_tag_with_request_in_context(self):
         request = RequestFactory().post('/jsreverse/')
-        request.urlconf = 'django_js_reverse.tests.test_urlconf_urls'
+        request.urlconf = 'vue_js_reverse.tests.test_urlconf_urls'
         tpl = Template('{% load js_reverse %}{% js_reverse_inline %}')
         js = tpl.render(RequestContext(request))
         self.assertEqualJSEval(js, 'Urls.test_changed_urlconf()', '/test_changed_urlconf/')
 
     def test_tpl_tag_with_dict_request_in_context(self):
-        request = {'urlconf': 'django_js_reverse.tests.test_urlconf_urls'}
+        request = {'urlconf': 'vue_js_reverse.tests.test_urlconf_urls'}
         tpl = Template('{% load js_reverse %}{% js_reverse_inline %}')
         js = tpl.render(Context({'request': request}))
         self.assertEqualJSEval(js, 'Urls.test_changed_urlconf()', '/test_changed_urlconf/')

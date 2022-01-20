@@ -50,7 +50,7 @@ def prepare_url_list(urlresolver, namespace_path='', namespace=''):
 
     include_only_allow = True  # include_only state variable
 
-    if include_only_ns != []:
+    if include_only_ns:
         # True mean that ns passed the test
         in_on_empty_ns = False
         in_on_is_in_list = False
@@ -163,7 +163,7 @@ def generate_js(default_urlresolver):
         script_prefix = urlresolvers.get_script_prefix()
 
     data = generate_json(default_urlresolver, script_prefix)
-    js_content = loader.render_to_string('django_js_reverse/urls_js.tpl', {
+    js_content = loader.render_to_string('vue_js_reverse/urls_js.tpl', {
         'data': _safe_json(data),
         'js_name': '.'.join([js_global_object_name, js_var_name]),
     })
@@ -174,7 +174,7 @@ def generate_js(default_urlresolver):
 
 
 def generate_cjs_module():
-    return loader.render_to_string('django_js_reverse/urls_js.tpl', {
+    return loader.render_to_string('vue_js_reverse/urls_js.tpl', {
         'data': "false",
         'js_name': 'module.exports',
     })

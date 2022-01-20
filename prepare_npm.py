@@ -2,12 +2,12 @@
 import django
 from django.conf import settings
 
-from django_js_reverse import core
+from vue_js_reverse import core
 
 
 def main():
     settings.configure(
-        INSTALLED_APPS=["django_js_reverse"],
+        INSTALLED_APPS=["vue_js_reverse"],
         TEMPLATES=[
             {
                 "BACKEND": "django.template.backends.django.DjangoTemplates",

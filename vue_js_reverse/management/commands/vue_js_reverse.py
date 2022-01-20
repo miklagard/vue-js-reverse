@@ -6,8 +6,8 @@ from django.core.exceptions import ImproperlyConfigured
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
 from django.core.management.base import BaseCommand
-from django_js_reverse.core import generate_js
-from django_js_reverse.js_reverse_settings import JS_OUTPUT_PATH
+from vue_js_reverse.core import generate_js
+from vue_js_reverse.js_reverse_settings import JS_OUTPUT_PATH
 
 try:
     from django.urls import get_resolver
@@ -31,7 +31,7 @@ class Command(BaseCommand):
                 'settings.STATIC_ROOT to be set.'
             )
 
-        return os.path.join(settings.STATIC_ROOT, 'django_js_reverse', 'js')
+        return os.path.join(settings.STATIC_ROOT, 'vue_js_reverse', 'js')
 
     help = "Generate vue functions for js reverse"
 
@@ -85,12 +85,12 @@ class Command(BaseCommand):
         js += '  }\n'
         js += '}\n'
 
-        if 'VUE_PLUGINS_DIR' in settings:
+        if hasattr(settings, 'VUE_PLUGINS_DIR'):
             vue_plugins_dir = settings.VUE_PLUGIN_DIR
         else:
             vue_plugins_dir = os.path.join(settings.BASE_DIR, 'vue_frontend', 'src', 'plugins')
 
-        if 'VUE_REVERSE_URL_PLUGIN' in settings:
+        if hasattr(settings, 'VUE_REVERSE_URL_PLUGIN'):
             vue_reverse_url_plugin = settings.VUE_REVERSE_URL_PLUGIN
         else:
             vue_reverse_url_plugin = 'Url.js'
