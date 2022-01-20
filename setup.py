@@ -1,42 +1,22 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import codecs
-import os
+import setuptools
 
-from setuptools import setup, find_packages
+with open("README.rst", "r") as fh:
+    long_description = fh.read()
 
-
-def read(*parts):
-    filename = os.path.join(os.path.dirname(__file__), *parts)
-    with codecs.open(filename, encoding='utf-8') as fp:
-        return fp.read()
-
-
-setup(
-    name='django-js-reverse',
-    version='0.10.1a1.dev0',
+setuptools.setup(
+    name="vue_js_reverse",
+    version="0.0.1",
+    author="Cem Yildiz",
+    author_email="cem.yildiz@ya.ru",
+    description="Vue JS Reverse",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/miklagard/vue_js_reverse",
+    packages=setuptools.find_packages(),
     classifiers=[
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: Implementation :: PyPy',
-        'Framework :: Django',
-        'Development Status :: 5 - Production/Stable',
-        'License :: OSI Approved :: MIT License',
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
-    license='MIT',
-    description='Javascript url handling for Django that doesn\'t hurt.',
-    long_description=read('README.rst') + '\n\n' + read('CHANGELOG.rst'),
-    author='Bernhard Janetzki',
-    author_email='boerni@gmail.com',
-    url='https://github.com/ierror/django-js-reverse',
-    download_url='http://pypi.python.org/pypi/django-js-reverse/',
-    packages=find_packages(),
-    package_data={
-        'django_js_reverse': [
-            'templates/django_js_reverse/*',
-        ]
-    },
-    install_requires=[
-        'Django>=1.5',
-    ]
+    python_requires='>=3.6',
 )
