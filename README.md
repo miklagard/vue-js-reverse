@@ -78,7 +78,7 @@ License
 -------
 
 MIT 
-https://raw.github.com/ierror/django-js-reverse/master/LICENSE
+https://raw.githubusercontent.com/miklagard/vue-js-reverse/master/LICENSE
 
 
 Contact

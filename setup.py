@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="vue_js_reverse",
-    version="0.0.6",
+    version="0.0.7",
     author="Cem Yildiz",
     author_email="cem.yildiz@ya.ru",
     description="Vue JS Reverse",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/miklagard/vue_js_reverse",
+    url="https://github.com/miklagard/vue-js-reverse",
     packages=setuptools.find_packages(),
     package_data={
         'vue_js_reverse': [
