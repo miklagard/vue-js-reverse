@@ -70,7 +70,7 @@ class Command(BaseCommand):
         for url in urls['urls']:
             parameters = url[1][0]
 
-            vue_content += '      ' + url[0].replace('-', '_') + ": "
+            vue_content += '      ' + url[0].replace('-', '_').replace(':', '_') + ": "
             vue_content += '(' + ', '.join(parameters[1]) + ') => {'
             string = parameters[0].replace('%(', '${').replace(')s', '}')
             vue_content += ' return `/' + string + '` '

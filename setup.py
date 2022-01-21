@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="vue_js_reverse",
-    version="0.0.5",
+    version="0.0.6",
     author="Cem Yildiz",
     author_email="cem.yildiz@ya.ru",
     description="Vue JS Reverse",
