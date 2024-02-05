@@ -73,14 +73,18 @@ class Command(BaseCommand):
             vue_content += '      ' + url[0].replace('-', '_').replace(':', '_') + ": "
             vue_content += '(' + ', '.join(parameters[1]) + ') => {'
             string = parameters[0].replace('%(', '${').replace(')s', '}')
-            vue_content += ' return `/' + string + '` '
+            vue_content += ' return `/' + string + '`; '
             vue_content += '},\n'
 
-        vue_content = '    Vue.prototype.$urls = {\n' + vue_content + '    }\n'
+        vue_content = '    Vue.prototype.$urls = {\n' + vue_content + '    };\n'
+
+        js = '/*jshint esversion: 6 */\n'
+        js += '/*jshint strict: false */\n'
+        js += '\n'
 
         js = 'export default {\n'
         js += '  install(Vue, options) {\n'
-        js += '    Vue.PLUGIN_VERSION = "0.0.1"\n'
+        js += '    Vue.PLUGIN_VERSION = "0.0.1";\n'
         js += vue_content
         js += '  }\n'
         js += '}\n'
