@@ -87,7 +87,7 @@ class Command(BaseCommand):
         js += '    Vue.PLUGIN_VERSION = "0.0.1";\n'
         js += vue_content
         js += '  }\n'
-        js += '}\n'
+        js += '};\n'
 
         if hasattr(settings, 'VUE_PLUGINS_DIR'):
             vue_plugins_dir = settings.VUE_PLUGIN_DIR
