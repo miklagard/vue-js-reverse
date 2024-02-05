@@ -82,7 +82,7 @@ class Command(BaseCommand):
         js += '/*jshint strict: false */\n'
         js += '\n'
 
-        js = 'export default {\n'
+        js += 'export default {\n'
         js += '  install(Vue, options) {\n'
         js += '    Vue.PLUGIN_VERSION = "0.0.1";\n'
         js += vue_content
